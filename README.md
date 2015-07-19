@@ -1,18 +1,14 @@
 NHibernate.AspNet.Identity.Multitenant
 =======================
 
-ASP.NET Identity provider that uses NHibernate for storage
+Simple multi-tenant solution.
 
 ## About this ##
-This project is a fork of the NHibernate.AspNet.Identity. The main idea is to implement a simple muli
-
+This is a multi-tenant solution that uses as a based the popular [https://github.com/nhibernate/NHibernate.AspNet.Identity] library.
 
 ## How it works ##
+The way that the library has been extended to support multi-tenancy is by adding a new property to the IdentityUser that identifies to which tenant the user belongs to.
 
-
-## What it is not ##
-
-
-## Thanks To ##
-
-Special thanks to [David Boike](https://github.com/DavidBoike) whos [RavenDB AspNet Identity](https://github.com/ILMServices/RavenDB.AspNet.Identity) project gave me the base for jumpstarting the NHibernate provider
+## Keep in mind ##
+The reason why I call it a simple multi-tenant solution is because a single email address can only belong to a single tenant.
+Many will agree and disagree that this is not a multi-tenant solution, however I think that this is at least the most simple solution to achieve multi-tenancy.
