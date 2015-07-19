@@ -353,5 +353,31 @@ namespace NHibernate.AspNet.Identity.Tests
             var x2 = userManager.FindByEmail("aaa@bbb.com");
             Assert.IsNull(x2);
         }
+
+
+        [TestMethod]
+        public void WhenCeateUserAsyncWithTenant()
+        {
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(_session));
+            var user = new ApplicationUser() { UserName = "RealUserName" };
+            var tenant = new ApplicationTenant() { Name = "AnyCompany_LTDA" };
+
+            //tenant.Users.Add(user);
+            user.Tenant = tenant;
+
+            using (var transaction = new TransactionScope())
+            {
+                var result = userManager.CreateAsync(user, "RealPassword").GetAwaiter().GetResult();
+                transaction.Complete();
+                Assert.AreEqual(0, result.Errors.Count());
+            }
+
+            var actual = _session.Query<ApplicationUser>().FirstOrDefault(x => x.UserName == user.UserName);
+
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(user.UserName, actual.UserName);
+            Assert.AreEqual(user.Tenant, actual.Tenant);
+        }
+
     }
 }

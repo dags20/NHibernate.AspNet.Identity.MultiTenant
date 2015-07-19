@@ -31,11 +31,13 @@ namespace NHibernate.AspNet.Identity
 
         public virtual string SecurityStamp { get; set; }
 
+        public virtual ApplicationTenant Tenant { get; set; }
+
         public virtual ICollection<IdentityRole> Roles { get; protected set; }
 
         public virtual ICollection<IdentityUserClaim> Claims { get; protected set; }
 
-        public virtual ICollection<IdentityUserLogin> Logins { get; protected set; }
+        public virtual ICollection<IdentityUserLogin> Logins { get; protected set; }        
 
         public IdentityUser()
         {
@@ -118,6 +120,8 @@ namespace NHibernate.AspNet.Identity
                 map.Table("AspNetUserRoles");
                 map.Key(k => k.Column("UserId"));
             }, rel => rel.ManyToMany(p => p.Column("RoleId")));
+
+            this.ManyToOne(x => x.Tenant, con => { con.Column("TenantId"); con.Cascade(Cascade.All); });
         }
     }
 }

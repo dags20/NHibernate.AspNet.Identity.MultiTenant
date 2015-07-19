@@ -84,6 +84,7 @@
     <Compile Include="RoleStore`1.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ApplicationTenant.cs" />
     <Compile Include="UserStore`1.cs">
       <SubType>Code</SubType>
     </Compile>

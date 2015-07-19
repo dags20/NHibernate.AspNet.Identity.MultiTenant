@@ -32,19 +32,21 @@ namespace NHibernate.AspNet.Identity.Tests
                 typeof(EntityWithTypedId<string>), 
             };
 
-            var allEntities = new[] { 
+            var allEntities = new[] {                 
                 typeof(IdentityUser), 
                 typeof(ApplicationUser), 
                 typeof(IdentityRole), 
                 typeof(IdentityUserLogin), 
-                typeof(IdentityUserClaim), 
-                typeof(Foo), 
+                typeof(IdentityUserClaim),                 
+                typeof(Foo),                 
+                typeof(ApplicationTenant),
             };
 
             var mapper = new ConventionModelMapper();
             DefineBaseClass(mapper, baseEntityToIgnore);
             mapper.IsComponent((type, declared) => typeof(ValueObject).IsAssignableFrom(type));
 
+            mapper.AddMapping<ApplicationTenantMap>();
             mapper.AddMapping<IdentityUserMap>();
             mapper.AddMapping<IdentityRoleMap>();
             mapper.AddMapping<IdentityUserClaimMap>();

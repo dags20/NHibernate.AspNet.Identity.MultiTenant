@@ -24,7 +24,8 @@ namespace NHibernate.AspNet.Identity.Helpers
             };
 
             var allEntities = new List<System.Type> { 
-                typeof(IdentityUser), 
+                typeof(ApplicationTenant),
+                typeof(IdentityUser),                 
                 typeof(IdentityRole), 
                 typeof(IdentityUserLogin), 
                 typeof(IdentityUserClaim),
@@ -38,6 +39,7 @@ namespace NHibernate.AspNet.Identity.Helpers
             mapper.AddMapping<IdentityUserMap>();
             mapper.AddMapping<IdentityRoleMap>();
             mapper.AddMapping<IdentityUserClaimMap>();
+            mapper.AddMapping<ApplicationTenantMap>();
 
             return mapper.CompileMappingFor(allEntities);
         }
