@@ -1,3 +1,6 @@
+
+[![Build status](https://ci.appveyor.com/api/projects/status/39sf06muejwyuwc3?svg=true)](https://ci.appveyor.com/project/dags20/nhibernate-aspnet-identity-multitenant)
+
 NHibernate.AspNet.Identity.Multitenant
 =======================
 
