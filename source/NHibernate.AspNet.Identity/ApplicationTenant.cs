@@ -10,17 +10,14 @@ using NHibernate.AspNet.Identity.DomainModel;
 namespace NHibernate.AspNet.Identity
 {
     public class ApplicationTenant : EntityWithTypedId<string>
-    {
-        //public ApplicationTenant()
-        //{
-        //   this.Users = new List<IdentityUser>();            
-        //}
-
+    {       
         public virtual string Id { get; set; }
 
         public virtual string Name { get; set; }
 
-        //public virtual IList<IdentityUser> Users { get; set; }
+        public virtual string Address { get; set; }
+
+        public virtual string Telephone { get; set; }
     }
 
     public class ApplicationTenantMap : ClassMapping<ApplicationTenant>
@@ -33,18 +30,9 @@ namespace NHibernate.AspNet.Identity
 
             this.Property(x => x.Name);
 
-            //this.Bag(x => x.Users, map =>
-            //{
-            //    map.Key(k =>
-            //    {
-            //        k.Column("TenantId");
-            //        k.Update(false); // to prevent extra update afer insert
-            //    });
-            //    map.Cascade(Cascade.All | Cascade.DeleteOrphans);
-            //}, rel =>
-            //{
-            //    rel.OneToMany();
-            //});
+            this.Property(x => x.Address);
+
+            this.Property(x => x.Telephone);
         }
     }
 }
