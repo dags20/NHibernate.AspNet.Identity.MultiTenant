@@ -1,3 +1,5 @@
+https://ci.appveyor.com/api/github/webhook?id=39sf06muejwyuwc3
+
 NHibernate.AspNet.Identity.Multitenant
 =======================
 
