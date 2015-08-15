@@ -2,9 +2,9 @@
 <package >
   <metadata>
     <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
+    <version>0.0.1</version>
+    <title>Testing Multitenancy</title>
+    <authors>dags</authors>
     <owners>$author$</owners>
     <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
     <projectUrl>https://github.com/milesibastos/NHibernate.AspNet.Identity</projectUrl>
