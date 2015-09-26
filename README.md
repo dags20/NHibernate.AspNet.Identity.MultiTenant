@@ -15,3 +15,6 @@ The way that the library has been extended to support multi-tenancy is by adding
 ## Keep in mind ##
 The reason why I call it a simple multi-tenant solution is because a single email address can only belong to a single tenant.
 Many will agree and disagree that this is not a multi-tenant solution, however I think that this is at least the most simple solution to achieve multi-tenancy.
+
+## Version of parent repo when forked ##
+2.2.1
